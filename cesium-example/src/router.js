@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import gltfModel from "./components/gltf/3DModels.vue";
+import gltfModel from "./components/model/3DModels.vue";
 
 Vue.use(Router);
 
@@ -14,13 +14,25 @@ export default new Router({
       component: gltfModel
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: "/modelColor",
+      name: "3D Models Coloring",
+      component: () => import("./components/model/3DModelsColoring.vue")
+    },
+    {
+      path: "/tilesBIM",
+      name: "3D Tiles BIM",
+      component: () => import("./components/3dtiles/3DtilesBIM.vue")
+    },
+    {
+      path: "/tilesHeight",
+      name: "3D Tiles Adjust Height",
+      component: () => import("./components/3dtiles/3DTilesAdjustHeight.vue")
+    },
+    {
+      path: "/tilesBatch",
+      name: "3D Tiles Batch Table Hierarchy",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+        import("./components/3dtiles/3DTilesBatchTableHierarchy.vue")
     }
   ]
 });

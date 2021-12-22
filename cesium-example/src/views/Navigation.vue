@@ -2,7 +2,7 @@
 <template>
   <div class="nav-wrap">
     <div class="column-wrap" v-for="(item, index) in list" :key="index">
-      <router-link to="">
+      <router-link :to="item.path">
         {{ item.text }}
         <img :src="item.img" alt="" />
       </router-link>
@@ -19,7 +19,28 @@ export default {
       list: [
         {
           img: "/images/nav/3D Models.jpg",
-          text: "gltf模型"
+          text: "gltf模型",
+          path: "/"
+        },
+        {
+          img: "/images/nav/3D Models Coloring.jpg",
+          text: "gltf模型颜色",
+          path: "/modelColor"
+        },
+        {
+          img: "/images/nav/3D Tiles BIM.jpg",
+          text: "BIM模型",
+          path: "/tilesBIM"
+        },
+        {
+          img: "/images/nav/3D Tiles Adjust Height.jpg",
+          text: "3dtiles高度调整",
+          path: "/tilesHeight"
+        },
+        {
+          img: "/images/nav/3D Tiles Batch Table Hierarchy.jpg",
+          text: "3dtiles颜色批处理",
+          path: "/tilesBatch"
         }
       ]
     };
@@ -34,7 +55,11 @@ export default {
 </script>
 <style lang="less" scoped>
 .nav-wrap {
+  text-align: left;
   .column-wrap {
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
     width: 170px;
     height: 130px;
     margin-top: 4px;
