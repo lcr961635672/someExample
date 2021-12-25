@@ -41,6 +41,11 @@ export default {
           img: "/images/nav/3D Tiles Batch Table Hierarchy.jpg",
           text: "3dtiles颜色批处理",
           path: "/tilesBatch"
+        },
+        {
+          img: "/images/nav/3D Tiles Clipping Planes.jpg",
+          text: "3dtiles平面裁剪",
+          path: "/tilesClip"
         }
       ]
     };

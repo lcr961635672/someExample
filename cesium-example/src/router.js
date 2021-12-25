@@ -33,6 +33,11 @@ export default new Router({
       name: "3D Tiles Batch Table Hierarchy",
       component: () =>
         import("./components/3dtiles/3DTilesBatchTableHierarchy.vue")
+    },
+    {
+      path: "/tilesClip",
+      name: "3D Tiles Clipping Planes",
+      component: () => import("./components/3dtiles/3DTilesClippingPlanes.vue")
     }
   ]
 });

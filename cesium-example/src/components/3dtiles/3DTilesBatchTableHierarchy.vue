@@ -112,14 +112,17 @@ export default {
 
   mounted() {
     this.viewer = new Cesium.Viewer("cesiumContainer");
-    this.add3dTiles();
+    this.add3dTiles(); // 添加3dtiles模型
+    this.initEvent(); // 初始化鼠标事件
   },
 
   methods: {
+    // 修改模型样式
     handleChange(e) {
       const style = this.getConditions(e);
-      this.tileset.style = new Cesium.Cesium3DTileStyle(style);
+      this.tileset.style = new Cesium.Cesium3DTileStyle(style); // 动态修改模型的样式
     },
+    // 添加3dtiles模型
     add3dTiles() {
       this.tileset = new Cesium.Cesium3DTileset({
         url: "/data/3dtiles/BatchTableHierarchy/tileset.json"
@@ -130,12 +133,14 @@ export default {
         new Cesium.HeadingPitchRange(0.0, -0.3, 0.0)
       );
     },
+    // 不同类型对应不同的style
     getConditions(type) {
       let result = {};
       switch (type) {
         case "No style":
           result = {};
           break;
+        // 通过属性build_name的不同显示不同的颜色
         case "Color by building":
           result = {
             color: {
@@ -147,16 +152,18 @@ export default {
             }
           };
           break;
+        // 通过类doors的不同显示不同的颜色
         case "Color all doors":
           result = {
             color: {
               conditions: [
                 ["isExactClass('door')", "color('orange')"],
-                ["true", "color('white')"]
+                ["true", "color('white')"] // true代表剩余的单个模型的颜色
               ]
             }
           };
           break;
+        // 通过是否包含字符串 类doors的不同显示不同的颜色
         case "Color all features derived from door":
           result = {
             color: {
@@ -167,6 +174,7 @@ export default {
             }
           };
           break;
+        // 通过正则处理class显示对应不同的颜色
         case "Color features by class name":
           result = {
             defines: {
@@ -182,6 +190,7 @@ export default {
             }
           };
           break;
+        // 通过属性height的大小显示不同的颜色
         case "Style by height":
           result = {
             color: {
@@ -198,6 +207,40 @@ export default {
           break;
       }
       return result;
+    },
+    initEvent() {
+      const handler = new Cesium.ScreenSpaceEventHandler(this.viewer.canvas);
+      // 鼠标左键单击事件
+      handler.setInputAction(movement => {
+        // 获取点击的模型feature
+        const feature = this.viewer.scene.pick(movement.position);
+        // 没有选中模型后 返回
+        if (!Cesium.defined(feature)) {
+          return;
+        }
+        // 获取feature的class名称
+        console.log("Class:" + feature.getExactClassName());
+        console.log("Properties:");
+        // 获取模型全部的的属性名称
+        const propertyNames = feature.getPropertyNames();
+        const length = propertyNames.length;
+        for (let i = 0; i < length; ++i) {
+          const name = propertyNames[i];
+          const value = feature.getProperty(name); // 获取对应此属性名称的值
+          console.log(`${name}:${value}`);
+        }
+      }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+      // 鼠标中建点击事件
+      handler.setInputAction(movement => {
+        // 获取点击的模型feature
+        const feature = this.viewer.scene.pick(movement.position);
+        // 没有选中模型后 返回
+        if (!Cesium.defined(feature)) {
+          return;
+        }
+        // 隐藏选中的模型单体
+        feature.show = false;
+      }, Cesium.ScreenSpaceEventType.MIDDLE_CLICK);
     }
   }
 };
