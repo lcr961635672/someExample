@@ -133,6 +133,8 @@ export default {
             tileset,
             new Cesium.HeadingPitchRange(0.5, -0.2, radius * 4.0)
           );
+          // 裁剪平面初始定位在模型根变换处
+          // 应用一个附加矩阵使剪裁平面在边界球体中心居中
           if (
             !Cesium.Matrix4.equals(
               tileset.root.transform,
@@ -140,31 +142,37 @@ export default {
             )
           ) {
             const transformCenter = Cesium.Matrix4.getTranslation(
+              // 获取3dtiles模型矩阵的平移部分 结果为Cartesian3
               tileset.root.transform,
               new Cesium.Cartesian3()
             );
+            // 转成弧度
             const transformCartographic = Cesium.Cartographic.fromCartesian(
               transformCenter
             );
+            // 获取球体中心
             const boundingSphereCartographic = Cesium.Cartographic.fromCartesian(
               tileset.boundingSphere.center
             );
+            //球体的高度 - 模型平移部分的高度
             const height =
               boundingSphereCartographic.height - transformCartographic.height;
+            //指定相对于剪裁平面原始坐标系的附加变换的4x4变换矩阵。
             this.clippingPlanes.modelMatrix = Cesium.Matrix4.fromTranslation(
               new Cesium.Cartesian3(0, 0, height)
             );
           }
           for (let i = 0; i < this.clippingPlanes.length; ++i) {
-            const plane = this.clippingPlanes.get(i);
+            const plane = this.clippingPlanes.get(i); // 获取裁剪平面
             const planeEntity = this.viewer.entities.add({
-              position: boundingSphere.center,
+              // 添加裁剪平面实体
+              position: boundingSphere.center, // 位置在边界球体中心
               plane: {
-                dimensions: new Cesium.Cartesian2(radius * 2.5, radius * 2.5),
+                dimensions: new Cesium.Cartesian2(radius * 2.5, radius * 2.5), //平面大小
                 material: Cesium.Color.WHITE.withAlpha(0.1),
-                plane: new Cesium.CallbackProperty(
+                plane: new Cesium.CallbackProperty( //随着时间变化修改平面的高度值
                   self.createPlaneUpdateFunction(plane),
-                  false
+                  false // false表示每次值都是变化的
                 ),
                 outline: true,
                 outlineColor: Cesium.Color.WHITE
@@ -179,8 +187,9 @@ export default {
     },
     // 加载glb小模型
     loadModel(url) {
-      this.createClipPlane();
+      this.createClipPlane(); // 创建裁剪平面
       const position = Cesium.Cartesian3.fromDegrees(
+        // 平面位置
         -123.0744619,
         44.0503706,
         300.0
@@ -190,10 +199,12 @@ export default {
       const roll = 0.0;
       const hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
       const orientation = Cesium.Transforms.headingPitchRollQuaternion(
+        // 模型方向
         position,
         hpr
       );
       const entity = this.viewer.entities.add({
+        // 添加小模型
         name: url,
         position: position,
         orientation: orientation,
@@ -239,27 +250,31 @@ export default {
     changeBound() {
       this.tileset.debugShowBoundingVolume = this.debugBoundingVolumesEnabled;
     },
+    //是否添加裁剪边缘
     changeStyle() {
       let edgeWidth = this.edgeStylingEnabled ? 1 : 0;
       this.clippingPlanes.edgeWidth = edgeWidth;
     },
+    // 初始化用到的事件
     initEvent() {
       const self = this;
+      // 注册鼠标按下事件
       const downHandler = new Cesium.ScreenSpaceEventHandler(
         this.viewer.scene.canvas
       );
       // 当鼠标按下是选中裁剪平面
       downHandler.setInputAction(movement => {
         const pickedObject = this.viewer.scene.pick(movement.position);
+        // 如果有选中裁剪平面实体
         if (
           Cesium.defined(pickedObject) &&
           Cesium.defined(pickedObject.id) &&
           Cesium.defined(pickedObject.id.plane)
         ) {
           self.selectedPlane = pickedObject.id.plane;
-          self.selectedPlane.material = Cesium.Color.WHITE.withAlpha(0.05);
+          self.selectedPlane.material = Cesium.Color.WHITE.withAlpha(0.05); //设置平面材料
           self.selectedPlane.outlineColor = Cesium.Color.WHITE;
-          self.viewer.scene.screenSpaceCameraController.enableInputs = false;
+          self.viewer.scene.screenSpaceCameraController.enableInputs = false; // 禁用地球随鼠标拖动
         }
       }, Cesium.ScreenSpaceEventType.LEFT_DOWN);
       // 鼠标先上释放平面
@@ -278,6 +293,7 @@ export default {
       const moveHandler = new Cesium.ScreenSpaceEventHandler(
         this.viewer.scene.canvas
       );
+      // 鼠标移动更新Y值
       moveHandler.setInputAction(movement => {
         if (Cesium.defined(self.selectedPlane)) {
           let deltaY = movement.startPosition.y - movement.endPosition.y;

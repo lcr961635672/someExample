@@ -38,6 +38,16 @@ export default new Router({
       path: "/tilesClip",
       name: "3D Tiles Clipping Planes",
       component: () => import("./components/3dtiles/3DTilesClippingPlanes.vue")
+    },
+    {
+      path: "/tilesPick",
+      name: "3D Tiles Feature Picking",
+      component: () => import("./components/3dtiles/3DTilesPick.vue")
+    },
+    {
+      path: "/tilesStyle",
+      name: "3D Tiles Feature Styling",
+      component: () => import("./components/3dtiles/3DTilesStyle.vue")
     }
   ]
 });

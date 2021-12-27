@@ -46,6 +46,16 @@ export default {
           img: "/images/nav/3D Tiles Clipping Planes.jpg",
           text: "3dtiles平面裁剪",
           path: "/tilesClip"
+        },
+        {
+          img: "/images/nav/3D Tiles Feature Picking.jpg",
+          text: "3dtiles选中描边",
+          path: "/tilesPick"
+        },
+        {
+          img: "/images/nav/3D Tiles Feature Styling.jpg",
+          text: "3dtiles样式修改",
+          path: "/tilesStyle"
         }
       ]
     };
