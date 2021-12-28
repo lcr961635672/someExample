@@ -58,6 +58,16 @@ export default new Router({
       path: "/tilesInspector",
       name: "3D Tiles Inspector",
       component: () => import("./components/3dtiles/3DTilesInspector.vue")
+    },
+    {
+      path: "/tilesInteractivity",
+      name: "3D Tiles Interactivity",
+      component: () => import("./components/3dtiles/3DTilesInteractivity.vue")
+    },
+    {
+      path: "/tilesInterior",
+      name: "3D Tiles Interior",
+      component: () => import("./components/3dtiles/3DTilesInterior.vue")
     }
   ]
 });

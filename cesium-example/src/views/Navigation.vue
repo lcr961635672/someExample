@@ -66,6 +66,16 @@ export default {
           img: "/images/nav/3D Tiles Inspector.jpg",
           text: "3dtiles小部件",
           path: "/tilesInspector"
+        },
+        {
+          img: "/images/nav/3D Tiles Interactivity.jpg",
+          text: "3dtiles事件交互",
+          path: "/tilesInteractivity"
+        },
+        {
+          img: "/images/nav/3D Tiles Interior.jpg",
+          text: "3dtiles模型内部",
+          path: "/tilesInterior"
         }
       ]
     };
@@ -81,6 +91,8 @@ export default {
 <style lang="less" scoped>
 .nav-wrap {
   text-align: left;
+  overflow: auto;
+  white-space: nowrap;
   .column-wrap {
     font-size: 16px;
     display: inline-block;
