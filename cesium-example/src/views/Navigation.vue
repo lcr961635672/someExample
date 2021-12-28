@@ -61,6 +61,11 @@ export default {
           img: "/images/nav/3D Tiles Formats.jpg",
           text: "3dtiles操作",
           path: "/tilesFormats"
+        },
+        {
+          img: "/images/nav/3D Tiles Inspector.jpg",
+          text: "3dtiles小部件",
+          path: "/tilesInspector"
         }
       ]
     };

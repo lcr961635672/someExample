@@ -1,4 +1,4 @@
-<!-- 3dtiles的一些操作 -->
+<!-- 3dtiles的一些操作(inspector小部件) -->
 <template>
   <div class="model-wrap">
     <div class="panel-wrap">

@@ -53,6 +53,11 @@ export default new Router({
       path: "/tilesFormats",
       name: "3D Tiles Formats",
       component: () => import("./components/3dtiles/3DTilesFormats.vue")
+    },
+    {
+      path: "/tilesInspector",
+      name: "3D Tiles Inspector",
+      component: () => import("./components/3dtiles/3DTilesInspector.vue")
     }
   ]
 });
