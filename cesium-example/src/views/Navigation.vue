@@ -56,6 +56,11 @@ export default {
           img: "/images/nav/3D Tiles Feature Styling.jpg",
           text: "3dtiles样式修改",
           path: "/tilesStyle"
+        },
+        {
+          img: "/images/nav/3D Tiles Formats.jpg",
+          text: "3dtiles操作",
+          path: "/tilesFormats"
         }
       ]
     };

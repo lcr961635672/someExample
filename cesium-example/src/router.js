@@ -48,6 +48,11 @@ export default new Router({
       path: "/tilesStyle",
       name: "3D Tiles Feature Styling",
       component: () => import("./components/3dtiles/3DTilesStyle.vue")
+    },
+    {
+      path: "/tilesFormats",
+      name: "3D Tiles Formats",
+      component: () => import("./components/3dtiles/3DTilesFormats.vue")
     }
   ]
 });
