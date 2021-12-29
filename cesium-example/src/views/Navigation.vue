@@ -1,6 +1,6 @@
 <!-- 下面导航栏  -->
 <template>
-  <div class="nav-wrap">
+  <div class="nav-wrap" ref="scrollContainer" @mousewheel="MouseWheel">
     <div class="column-wrap" v-for="(item, index) in list" :key="index">
       <router-link :to="item.path">
         {{ item.text }}
@@ -76,6 +76,11 @@ export default {
           img: "/images/nav/3D Tiles Interior.jpg",
           text: "3dtiles模型内部",
           path: "/tilesInterior"
+        },
+        {
+          img: "/images/nav/3D Tiles Next CDB Yemen.jpg",
+          text: "3dtiles也门",
+          path: "/tilesYemen"
         }
       ]
     };
@@ -85,7 +90,16 @@ export default {
 
   mounted() {},
 
-  methods: {}
+  methods: {
+    //鼠标滚轮上下滑动时div左右滑动
+    MouseWheel(e) {
+      let eventDelta = -e.wheelDelta || -e.deltaY * 40;
+      let $scrollWrapper = this.$refs.scrollContainer;
+      // console.log($scrollWrapper.scrollLeft)
+      // 0到scrollLeft为滚动区域隐藏部分
+      $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4;
+    }
+  }
 };
 </script>
 <style lang="less" scoped>

@@ -68,6 +68,11 @@ export default new Router({
       path: "/tilesInterior",
       name: "3D Tiles Interior",
       component: () => import("./components/3dtiles/3DTilesInterior.vue")
+    },
+    {
+      path: "/tilesYemen",
+      name: "3D Tiles Next CDB Yemen",
+      component: () => import("./components/3dtiles/3DTilesYemen.vue")
     }
   ]
 });
