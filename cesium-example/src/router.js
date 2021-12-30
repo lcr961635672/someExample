@@ -73,6 +73,12 @@ export default new Router({
       path: "/tilesYemen",
       name: "3D Tiles Next CDB Yemen",
       component: () => import("./components/3dtiles/3DTilesYemen.vue")
+    },
+    {
+      path: "/tilesPhotoClassification",
+      name: "3D Tiles Next Photogrammetry Classification",
+      component: () =>
+        import("./components/3dtiles/3DTilesPhotoClassification.vue")
     }
   ]
 });

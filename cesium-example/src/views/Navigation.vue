@@ -81,6 +81,11 @@ export default {
           img: "/images/nav/3D Tiles Next CDB Yemen.jpg",
           text: "3dtiles也门",
           path: "/tilesYemen"
+        },
+        {
+          img: "/images/nav/3D Tiles Next Photogrammetry Classification.jpg",
+          text: "3dtiles自定义shader",
+          path: "/tilesPhotoClassification"
         }
       ]
     };
