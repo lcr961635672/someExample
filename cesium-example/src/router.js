@@ -79,6 +79,33 @@ export default new Router({
       name: "3D Tiles Next Photogrammetry Classification",
       component: () =>
         import("./components/3dtiles/3DTilesPhotoClassification.vue")
+    },
+    {
+      path: "/tilesGlobe",
+      name: "3D Tiles Next S2 Globe",
+      component: () => import("./components/3dtiles/3DTilesGlobe.vue")
+    },
+    {
+      path: "/tilesClassification",
+      name: "3D Tiles Photogrammetry Classification",
+      component: () => import("./components/3dtiles/3DTilesClassification.vue")
+    },
+    {
+      path: "/tilesPhotogrammetry",
+      name: "3D Tiles Photogrammetry",
+      component: () => import("./components/3dtiles/3DTilesPhotogrammetry.vue")
+    },
+    {
+      path: "/tilesPointCloudClassify",
+      name: "3D Tiles Point Cloud Classification",
+      component: () =>
+        import("./components/3dtiles/3DTilesPointCloudClassify.vue")
+    },
+    {
+      path: "/tilesPointCloudShading",
+      name: "3D Tiles Point Cloud Shading",
+      component: () =>
+        import("./components/3dtiles/3DTilesPointCloudShading.vue")
     }
   ]
 });

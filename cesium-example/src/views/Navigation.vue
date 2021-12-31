@@ -86,6 +86,31 @@ export default {
           img: "/images/nav/3D Tiles Next Photogrammetry Classification.jpg",
           text: "3dtiles自定义shader",
           path: "/tilesPhotoClassification"
+        },
+        {
+          img: "/images/nav/3D Tiles Next S2 Globe.jpg",
+          text: "3dtiles球体",
+          path: "/tilesGlobe"
+        },
+        {
+          img: "/images/nav/3D Tiles Photogrammetry Classification.jpg",
+          text: "3dtiles模型分类",
+          path: "/tilesClassification"
+        },
+        {
+          img: "/images/nav/3D Tiles Photogrammetry.jpg",
+          text: "3dtiles摄影测量",
+          path: "/tilesPhotogrammetry"
+        },
+        {
+          img: "/images/nav/3D Tiles Point Cloud Classification.jpg",
+          text: "3dtiles点云分类",
+          path: "/tilesPointCloudClassify"
+        },
+        {
+          img: "/images/nav/3D Tiles Point Cloud Shading.jpg",
+          text: "3dtiles点云配置",
+          path: "/tilesPointCloudShading"
         }
       ]
     };

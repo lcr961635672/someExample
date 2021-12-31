@@ -2,9 +2,11 @@
 <template>
   <div class="model-wrap">
     <div class="panel-wrap">
-      <a-checkbox v-dark v-model="showPick">
-        启用拾取
-      </a-checkbox>
+      <div class="box">
+        <a-checkbox v-dark v-model="showPick">
+          启用拾取
+        </a-checkbox>
+      </div>
       <div class="select-wrap">
         <a-select
           v-dark
@@ -58,7 +60,7 @@ export default {
   computed: {},
 
   mounted() {
-    // 开启拾取
+    // 这句话特别重要，如果要写自定义着色器 就需要加这句话
     Cesium.ExperimentalFeatures.enableModelExperimental = true;
     // 创建球
     this.viewer = new Cesium.Viewer("cesiumContainer", {
@@ -352,6 +354,13 @@ export default {
   position: fixed;
   top: 20px;
   left: 20px;
+  .box {
+    display: inline-block;
+    border-radius: 4px;
+    background: rgba(42, 42, 42, 0.8);
+    padding: 5px;
+    margin-right: 10px;
+  }
   .select-wrap {
     display: inline-block;
   }
