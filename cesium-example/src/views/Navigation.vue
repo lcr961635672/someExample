@@ -18,81 +18,97 @@ export default {
     return {
       list: [
         {
+          id: 1,
           img: "/images/nav/3D Models.jpg",
           text: "gltf模型",
           path: "/"
         },
         {
+          id: 2,
           img: "/images/nav/3D Models Coloring.jpg",
           text: "gltf模型颜色",
           path: "/modelColor"
         },
         {
+          id: 3,
           img: "/images/nav/3D Tiles BIM.jpg",
           text: "BIM模型",
           path: "/tilesBIM"
         },
         {
+          id: 4,
           img: "/images/nav/3D Tiles Adjust Height.jpg",
           text: "3dtiles高度调整",
           path: "/tilesHeight"
         },
         {
+          id: 5,
           img: "/images/nav/3D Tiles Batch Table Hierarchy.jpg",
           text: "3dtiles颜色批处理",
           path: "/tilesBatch"
         },
         {
+          id: 6,
           img: "/images/nav/3D Tiles Clipping Planes.jpg",
           text: "3dtiles平面裁剪",
           path: "/tilesClip"
         },
         {
+          id: 7,
           img: "/images/nav/3D Tiles Feature Picking.jpg",
           text: "3dtiles选中描边",
           path: "/tilesPick"
         },
         {
+          id: 8,
           img: "/images/nav/3D Tiles Feature Styling.jpg",
           text: "3dtiles样式修改",
           path: "/tilesStyle"
         },
         {
+          id: 9,
           img: "/images/nav/3D Tiles Formats.jpg",
           text: "3dtiles操作",
           path: "/tilesFormats"
         },
         {
+          id: 10,
           img: "/images/nav/3D Tiles Inspector.jpg",
           text: "3dtiles小部件",
           path: "/tilesInspector"
         },
         {
+          id: 11,
           img: "/images/nav/3D Tiles Interactivity.jpg",
           text: "3dtiles事件交互",
           path: "/tilesInteractivity"
         },
         {
+          id: 12,
           img: "/images/nav/3D Tiles Interior.jpg",
           text: "3dtiles模型内部",
           path: "/tilesInterior"
         },
         {
+          id: 13,
           img: "/images/nav/3D Tiles Next CDB Yemen.jpg",
           text: "3dtiles也门",
           path: "/tilesYemen"
         },
         {
+          id: 14,
           img: "/images/nav/3D Tiles Next Photogrammetry Classification.jpg",
           text: "3dtiles自定义shader",
           path: "/tilesPhotoClassification"
         },
         {
+          id: 15,
           img: "/images/nav/3D Tiles Next S2 Globe.jpg",
           text: "3dtiles球体",
           path: "/tilesGlobe"
         },
         {
+          id: 16,
           img: "/images/nav/3D Tiles Photogrammetry Classification.jpg",
           text: "3dtiles模型分类",
           path: "/tilesClassification"
@@ -103,14 +119,28 @@ export default {
           path: "/tilesPhotogrammetry"
         },
         {
+          id: 17,
           img: "/images/nav/3D Tiles Point Cloud Classification.jpg",
           text: "3dtiles点云分类",
           path: "/tilesPointCloudClassify"
         },
         {
+          id: 18,
           img: "/images/nav/3D Tiles Point Cloud Shading.jpg",
           text: "3dtiles点云配置",
           path: "/tilesPointCloudShading"
+        },
+        {
+          id: 19,
+          img: "/images/nav/3D Tiles Point Cloud Styling.jpg",
+          text: "3dtiles点云样式",
+          path: "/tilesPointCloudStyling"
+        },
+        {
+          id: 20,
+          img: "/images/nav/3D Tiles Point Cloud.jpg",
+          text: "3dtiles点云",
+          path: "/tilesPointCloud"
         }
       ]
     };

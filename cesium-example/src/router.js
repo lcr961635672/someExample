@@ -106,6 +106,17 @@ export default new Router({
       name: "3D Tiles Point Cloud Shading",
       component: () =>
         import("./components/3dtiles/3DTilesPointCloudShading.vue")
+    },
+    {
+      path: "/tilesPointCloudStyling",
+      name: "3D Tiles Point Cloud Styling",
+      component: () =>
+        import("./components/3dtiles/3DTilesPointCloudStyling.vue")
+    },
+    {
+      path: "/tilesPointCloud",
+      name: "3D Tiles Point Cloud",
+      component: () => import("./components/3dtiles/3DTilesPointCloud.vue")
     }
   ]
 });
