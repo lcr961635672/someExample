@@ -141,6 +141,36 @@ export default {
           img: "/images/nav/3D Tiles Point Cloud.jpg",
           text: "3dtiles点云",
           path: "/tilesPointCloud"
+        },
+        {
+          id: 21,
+          img: "/images/nav/3D Tiles Terrain Classification.jpg",
+          text: "3dtiles地形分类",
+          path: "/tilesTerrainClassify"
+        },
+        {
+          id: 22,
+          img: "/images/nav/Ambient Occlusion.jpg",
+          text: "环境光遮蔽",
+          path: "/tilesAmbientOcclusion"
+        },
+        {
+          id: 23,
+          img: "/images/nav/ArcGIS MapServer.jpg",
+          text: "arcgis地图服务",
+          path: "/arcGISMapServer"
+        },
+        {
+          id: 24,
+          img: "/images/nav/ArcGIS Tiled Elevation Terrain.jpg",
+          text: "arcgis高程地形",
+          path: "/arcGISTerrain"
+        },
+        {
+          id: 25,
+          img: "/images/nav/ArcticDEM.jpg",
+          text: "北极DEM",
+          path: "/arcticDEM"
         }
       ]
     };

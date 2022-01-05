@@ -117,6 +117,37 @@ export default new Router({
       path: "/tilesPointCloud",
       name: "3D Tiles Point Cloud",
       component: () => import("./components/3dtiles/3DTilesPointCloud.vue")
+    },
+    {
+      path: "/tilesTerrainClassify",
+      name: "3D Tiles Terrain Classification",
+      component: () => import("./components/3dtiles/3DTilesTerrainClassify.vue")
+    },
+    {
+      path: "/tilesAmbientOcclusion",
+      name: "Ambient Occlusion",
+      component: () =>
+        import("./components/3dtiles/3DTilesAmbientOcclusion.vue")
+    },
+    {
+      path: "/arcGISMapServer",
+      name: "ArcGIS MapServer",
+      component: () => import("./components/mapServer/arcGISMapServer.vue")
+    },
+    {
+      path: "/arcGISTerrain",
+      name: "ArcGIS Tiled Elevation Terrain",
+      component: () => import("./components/mapServer/arcGISTerrain.vue")
+    },
+    {
+      path: "/arcticDEM",
+      name: "ArcticDEM",
+      component: () => import("./components/mapServer/arcticDEM.vue")
+    },
+    {
+      path: "/billboards",
+      name: "Billboards",
+      component: () => import("./components/entity/billboards.vue")
     }
   ]
 });
