@@ -171,6 +171,12 @@ export default {
           img: "/images/nav/ArcticDEM.jpg",
           text: "北极DEM",
           path: "/arcticDEM"
+        },
+        {
+          id: 26,
+          img: "/images/nav/Billboards.jpg",
+          text: "广告牌",
+          path: "/billboards"
         }
       ]
     };
