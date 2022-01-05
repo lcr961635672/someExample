@@ -148,6 +148,21 @@ export default new Router({
       path: "/billboards",
       name: "Billboards",
       component: () => import("./components/entity/billboards.vue")
+    },
+    {
+      path: "/bloom",
+      name: "Bloom",
+      component: () => import("./components/model/bloom.vue")
+    },
+    {
+      path: "/blueMarble",
+      name: "Blue Marble",
+      component: () => import("./components/mapServer/blueMarble.vue")
+    },
+    {
+      path: "/box",
+      name: "Box",
+      component: () => import("./components/entity/box.vue")
     }
   ]
 });

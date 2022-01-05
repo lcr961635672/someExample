@@ -177,6 +177,24 @@ export default {
           img: "/images/nav/Billboards.jpg",
           text: "广告牌",
           path: "/billboards"
+        },
+        {
+          id: 27,
+          img: "/images/nav/Bloom.jpg",
+          text: "泛光",
+          path: "/bloom"
+        },
+        {
+          id: 28,
+          img: "/images/nav/Blue Marble.jpg",
+          text: "蓝色大理石",
+          path: "/blueMarble"
+        },
+        {
+          id: 29,
+          img: "/images/nav/Box.jpg",
+          text: "盒子",
+          path: "/box"
         }
       ]
     };
